@@ -1,0 +1,33 @@
+.instagramContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.instagramItem {
+  padding: 20px;
+}
+
+.instagramImage {
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+
+.instagramStatus {
+  text-align: center;
+}
+
+.instagramButton {
+  text-align: center;
+}
+
+.accepted {
+  background: rgba(0, 255, 55, 0.5);
+}
+
+.declined {
+  background: rgba(255, 0, 0, 0.5);
+}

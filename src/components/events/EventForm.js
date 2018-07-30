@@ -1,15 +1,14 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {createEvent} from '../../actions/events'
-import {TextField, Button} from 'material-ui';
+import React, { PureComponent } from 'react'
+import { TextField, Button } from 'material-ui';
 
 
-class AddEventForm extends PureComponent {
+class EventForm extends PureComponent {
 	state = {}
 
 	handleSubmit = (e) => {
     e.preventDefault()
-		this.props.createEvent(this.state)
+		// this.props.createEvent(this.state)
+		this.props.onSubmit(this.state)
 	}
 
 	handleChange = (event) => {
@@ -21,6 +20,7 @@ class AddEventForm extends PureComponent {
   }
 
 	render() {
+		// const initialValues = this.props.initialValues || {}
 		return (
       <div className="addEventForm">
   			<form onSubmit={this.handleSubmit}>
@@ -65,9 +65,9 @@ class AddEventForm extends PureComponent {
             onChange={ this.handleChange }
             margin="normal"
             />
-            
+
             <br />
-            <Button variant="outlined" type="submit">
+            <Button variant="raised" type="submit">
               Post
             </Button>
         </form>
@@ -76,6 +76,8 @@ class AddEventForm extends PureComponent {
 	}
 }
 
-const mapStateToProps = () => ({  })
+// const mapStateToProps = () => ({  })
+//
+// export default connect(mapStateToProps, { createEvent })(AddEventForm)
 
-export default connect(mapStateToProps, { createEvent })(AddEventForm)
+export default EventForm

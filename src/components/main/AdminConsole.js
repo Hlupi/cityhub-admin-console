@@ -1,12 +1,17 @@
 import React, {PureComponent} from 'react'
-import {getEvents} from '../../actions/events'
+import {getEvents, createEvent} from '../../actions/events'
 import {getInstagram} from '../../actions/instagram'
 import {getUsers} from '../../actions/users'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import AddEventForm from './AddEventForm'
+import EventForm from '../events/EventForm'
+import EventsList from '../events/EventsList'
 
 class AdminConsole extends PureComponent {
+  createEvent = (event) => {
+    this.props.createEvent(event)
+  }
+
   componentDidMount() {
 
     this.props.getEvents()
@@ -15,7 +20,7 @@ class AdminConsole extends PureComponent {
     if (this.props.authenticated) {
       if (this.props.users === null) this.props.getUsers()
     }
-  }  
+  }
 
   render() {
     const {users} = this.props
@@ -25,7 +30,8 @@ class AdminConsole extends PureComponent {
         <div>
           <h1>City Hub Console</h1>
           <button onClick={this.props.getEvents}>Get new events</button>
-          <AddEventForm />
+          <EventForm onSubmit={this.createEvent} />
+          <EventsList />
         </div>
       )
     }
@@ -38,6 +44,8 @@ class AdminConsole extends PureComponent {
         </div>
       )
     }
+
+
 
 
     else return (
@@ -54,4 +62,4 @@ const mapStateToProps = state => ({
     null : Object.values(state.events).sort((a, b) => b.id - a.id)
 })
 
-export default connect(mapStateToProps, {getUsers, getEvents, getInstagram})(AdminConsole)
+export default connect(mapStateToProps, {getUsers, getEvents, getInstagram, createEvent})(AdminConsole)

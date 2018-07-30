@@ -1,0 +1,18 @@
+.eventsContainer {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.events-list-item {
+  margin: 5px auto;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.event-image {
+
+}

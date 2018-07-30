@@ -31,7 +31,6 @@ class AdminConsole extends PureComponent {
           <h1>City Hub Console</h1>
           <button onClick={this.props.getEvents}>Get new events</button>
           <EventForm onSubmit={this.createEvent} />
-          <EventsList />
         </div>
       )
     }

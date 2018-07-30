@@ -2,11 +2,8 @@ import React, {PureComponent} from 'react'
 import {getInstagram, updateStatus} from '../../actions/instagram'
 import {getUsers} from '../../actions/users'
 import {connect} from 'react-redux'
-// import {Link} from 'react-router-dom'
 
 import './instagram.css'
-
-// import {Paper, Card, CardMedia, Typography, CardActions, CardContent, Button} from 'material-ui'
 
 class InstagramConsole extends PureComponent {
 
@@ -35,7 +32,7 @@ class InstagramConsole extends PureComponent {
 
   render() {
 
-    const {instagram, users} = this.props
+    const {instagram} = this.props
 
     if (instagram !== undefined && 
         instagram !== null &&
@@ -80,7 +77,6 @@ class InstagramConsole extends PureComponent {
 
 const mapStateToProps = state => ({
   authenticated: state.currentUser !== null,
-  users: state.users === null ? null : state.users,
   events: state.events === null ?
     null : Object.values(state.events).sort((a, b) => b.id - a.id)
 })

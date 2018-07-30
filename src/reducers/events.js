@@ -1,5 +1,5 @@
 import {USER_LOGOUT} from '../actions/users'
-import {ADD_EVENT, UPDATE_EVENTS} from '../actions/events'
+import {ADD_EVENT, UPDATE_EVENTS, EDIT_EVENT} from '../actions/events'
 
 // import update from 'immutability-helper'
 
@@ -13,14 +13,23 @@ export default (state = null, {type, payload}) => {
     case UPDATE_EVENTS:
       return payload
 
+    // Edit an event
+    case EDIT_EVENT:
+      return state.map(event => {
+        if(event.id === payload.id) {
+          return payload
+        }
+        else return event
+      })
+
     // Add event reducer
     case ADD_EVENT:
-      return {
+      return [
         ...state,
-        [payload.id]: payload
-      }
+        payload
+      ]
 
-    // Default 
+    // Default
     default:
       return state
   }

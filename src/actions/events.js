@@ -44,3 +44,22 @@ const addEvent = event => ({
 })
 
 
+//Edit a specific event
+export const updateEvent = (updates) => (dispatch, getState) => {
+  const state = getState()
+  const jwt = state.currentUser.jwt
+
+  request
+  .patch(`${baseUrl}/events`)
+  .set('Authorization', `Bearer ${jwt}`)
+  .send(updates)
+  .then(result => dispatch(editEvent(result.body)))
+  .catch(err => console.error(err))
+}
+
+// Dispatch Action to store
+export const EDIT_EVENT = 'EDIT_EVENT'
+const editEvent = event => ({
+  type: EDIT_EVENT,
+  payload: event
+})

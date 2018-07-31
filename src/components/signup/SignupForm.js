@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {TextField, Button} from 'material-ui';
+import {TextField, Button} from '@material-ui/core';
 import './signup.css'
 
 export default class SignupForm extends PureComponent {
@@ -32,7 +32,7 @@ export default class SignupForm extends PureComponent {
 					fullWidth
 					value={
 						this.state.email || ''
-					} onChange={ this.handleChange } 
+					} onChange={ this.handleChange }
        		 /> </label>
 
 					<label className='textField'> <TextField
@@ -44,9 +44,9 @@ export default class SignupForm extends PureComponent {
 					fullWidth
 					value={
 						this.state.password || ''
-					} onChange={ this.handleChange } 
+					} onChange={ this.handleChange }
 					/> </label>
-					
+
 					<label className='textField'> <TextField
           id="confirm-password-input"
           label="Confirm Password"
@@ -56,7 +56,7 @@ export default class SignupForm extends PureComponent {
 					fullWidth
 					value={
 						this.state.confirmPassword || ''
-					} onChange={ this.handleChange } 
+					} onChange={ this.handleChange }
 					/> </label>
 
   				{
@@ -65,7 +65,7 @@ export default class SignupForm extends PureComponent {
   					this.state.password !== this.state.confirmPassword &&
   					<p style={{color:'red'}}>The passwords do not match!</p>
   				}
-					
+
 					<Button color="default" type="submit" id="signupButton">
 						Sign Up
 					</Button>

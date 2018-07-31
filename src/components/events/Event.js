@@ -36,6 +36,14 @@ class Event extends PureComponent {
     render() {
       const {event} = this.props
 
+      const timeOld = event.startDate
+      const newTime = JSON.stringify(timeOld)
+      const startTime = newTime.slice(1, 11)
+
+      const timeOldEnd = event.endDate
+      const newTimeEnd = JSON.stringify(timeOldEnd)
+      const endTime = newTimeEnd.slice(1, 11)
+
       if (event !== undefined &&
           event !== null) {
             return (
@@ -44,7 +52,7 @@ class Event extends PureComponent {
                 <p> {event.title} </p>
                 <p> {event.description} </p>
                 <p> {event.address} </p>
-                <p> {event.starDate}  {event.endDate}</p>
+                {timeOld !== null && <p>{startTime} – {endTime}</p>}  
 
                 {
                       !this.state.edit &&

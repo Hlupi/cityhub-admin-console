@@ -63,28 +63,28 @@ class EventForm extends PureComponent {
   			<form onSubmit={this.handleSubmit}>
             <TextField
             id="title"
-            label="title"
+            label="Title"
             onChange={ this.handleChange }
             margin="normal"
             />
             <br />
             <TextField
             id="description"
-            label="description"
+            label="Description"
             onChange={ this.handleChange }
             margin="normal"
             />
             <br />
             <TextField
             id="image"
-            label="image"
+            label="Image URL"
             onChange={ this.handleChange }
             margin="normal"
             />
             <br />
             <TextField
             id="address"
-            label="address"
+            label="Address"
             onChange={ this.handleChange }
             margin="normal"
             />
@@ -92,17 +92,19 @@ class EventForm extends PureComponent {
             <TextField
 						type="date"
             id="startDate"
-            label="starts"
+            label="Starts"
             onChange={ this.handleChange }
             margin="normal"
+						// value=" "
             />
             <br />
             <TextField
 						type="date"
             id="endDate"
-            label="ends"
+            label="Ends"
             onChange={ this.handleChange }
             margin="normal"
+						// value=" "
             />
 
             <br />

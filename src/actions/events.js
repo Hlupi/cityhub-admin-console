@@ -63,3 +63,43 @@ const editEvent = event => ({
   type: EDIT_EVENT,
   payload: event
 })
+
+// Create a new message on server
+export const createMessage = (newMessage) => (dispatch, getState) => {
+  const state = getState()
+  const jwt = state.currentUser.jwt
+
+  request
+    .post(`${baseUrl}/messages`)
+    .send(newMessage)
+    .set('Authorization', `Bearer ${jwt}`)
+    .then(result => dispatch(addMessage(result.body)))
+    .catch(err => console.error(err))
+}
+
+// Dispatch Action to store
+export const ADD_MESSAGE = 'ADD_MESSAGE'
+const addMessage = message => ({
+  type: ADD_MESSAGE,
+  payload: message
+})
+
+//Edit a specific message
+export const updateMessage = (updates) => (dispatch, getState) => {
+  const state = getState()
+  const jwt = state.currentUser.jwt
+
+  request
+  .patch(`${baseUrl}/events`)
+  .set('Authorization', `Bearer ${jwt}`)
+  .send(updates)
+  .then(result => dispatch(editMessage(result.body)))
+  .catch(err => console.error(err))
+}
+
+// Dispatch Action to store
+export const EDIT_MESSAGE = 'EDIT_MESSAGE'
+const editMessage = message => ({
+  type: EDIT_MESSAGE,
+  payload: message
+})

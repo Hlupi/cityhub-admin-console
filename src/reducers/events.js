@@ -1,5 +1,5 @@
 import {USER_LOGOUT} from '../actions/users'
-import {ADD_EVENT, UPDATE_EVENTS, EDIT_EVENT} from '../actions/events'
+import {ADD_EVENT, UPDATE_EVENTS, EDIT_EVENT, ADD_MESSAGE} from '../actions/events'
 
 // import update from 'immutability-helper'
 
@@ -28,6 +28,13 @@ export default (state = null, {type, payload}) => {
         ...state,
         payload
       ]
+
+      // Add message reducer
+      case ADD_MESSAGE:
+        return [
+          ...state,
+          payload
+        ]
 
     // Default
     default:

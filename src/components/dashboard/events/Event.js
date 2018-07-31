@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { updateEvent } from '../../actions/events'
+import { updateEvent } from '../../../actions/events'
 import Button from '@material-ui/core/Button'
 import EventForm from './EventForm'
 import './Events.css'
@@ -52,7 +52,7 @@ class Event extends PureComponent {
                 <p> {event.title} </p>
                 <p> {event.description} </p>
                 <p> {event.address} </p>
-                {timeOld !== null && <p>{startTime} – {endTime}</p>}  
+                {timeOld !== null && <p>{startTime} – {endTime}</p>}
 
                 {
                       !this.state.edit &&

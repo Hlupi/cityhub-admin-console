@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
-import {getInstagram, updateStatus} from '../../actions/instagram'
-import {getUsers} from '../../actions/users'
+import {getInstagram, updateStatus} from '../../../actions/instagram'
+import {getUsers} from '../../../actions/users'
 import {connect} from 'react-redux'
 
 import './instagram.css'

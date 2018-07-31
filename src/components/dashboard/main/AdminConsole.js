@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react'
-import {getEvents, createEvent} from '../../actions/events'
-import {createMessage} from '../../actions/events'
-import {getInstagram} from '../../actions/instagram'
-import {getUsers} from '../../actions/users'
+import {getEvents, createEvent} from '../../../actions/events'
+import {createMessage} from '../../../actions/events'
+import {getInstagram} from '../../../actions/instagram'
+import {getUsers} from '../../../actions/users'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import EventForm from '../events/EventForm'
@@ -11,7 +11,7 @@ import EventsList from '../events/EventsList'
 import Grid from '@material-ui/core/Grid';
 import InstagramConsole from '../instagram/InstagramConsole'
 import './AdminConsole.css'
-import logo from '../../images/cityhub-logo-black.svg'
+import logo from '../images/cityhub-logo-black.svg'
 import MessageBar from '../messages/MessageBar'
 
 class AdminConsole extends PureComponent {

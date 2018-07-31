@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { getEvents,updateEvent } from '../../actions/events'
+import { getEvents,updateEvent } from '../../../actions/events'
 import Event from './Event.js'
 import './Events.css'
 
@@ -38,7 +38,7 @@ class EventsList extends PureComponent {
         return (
           <div>
             <h2>Content feed</h2>
-          
+
           <div className="eventsContainer">
 
             { events.map(event => {

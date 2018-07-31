@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
-import LoginPage from './components/login/LoginPage'
-import SignupPage from './components/signup/SignupPage'
-import LogoutPage from './components/logout/LogoutPage'
-import AdminConsole from './components/main/AdminConsole'
+import LoginPage from './components/dashboard/login/LoginPage'
+import SignupPage from './components/dashboard/signup/SignupPage'
+import LogoutPage from './components/dashboard/logout/LogoutPage'
+import AdminConsole from './components/dashboard/main/AdminConsole'
 import './App.css'
-import TopBar from './components/layout/TopBar'
+import TopBar from './components/dashboard/layout/TopBar'
+import  TestCarousel  from './components/slider/main/Carousel';
 
 class App extends Component {
+
   render() {
+
+   const {user} = this.props
     return (
       <Router>
         <div>
@@ -24,7 +29,7 @@ class App extends Component {
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/dashboard" component={AdminConsole} />
-            {/* <Route exact path="/feed" component={AdminConsole} /> */}
+            <Route exact path="/carousel/:location" component={TestCarousel} />
             <Route exact path="/" render={ () => <Redirect to="/dashboard" /> } />
           </main>
         </div>
@@ -33,8 +38,8 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   user: state.user
-// })
-export default App
-// export default connect(mapStateToProps)(App)
+const mapStateToProps = state => ({
+  user: state.user
+})
+// export default App
+export default connect(mapStateToProps)(App)

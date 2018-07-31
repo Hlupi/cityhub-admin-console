@@ -4,9 +4,9 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import {withRouter} from 'react-router'
-import {userId} from '../../jwt'
+import {userId} from '../../../jwt'
 import {connect} from 'react-redux'
-import logo from '../../images/cityhub-logo-black.svg'
+import logo from '../images/cityhub-logo-black.svg'
 
 const TopBar = (props) => {
   const { location, history, user } = props
@@ -23,8 +23,8 @@ const TopBar = (props) => {
 
         }
 
-        <Button color="inherit" onClick={() => history.push('/feed')}>Feed</Button>
-
+        <Button color="inherit" onClick={() => history.push('/carousel/amsterdam')}>Amsterdam</Button>
+        <Button color="inherit" onClick={() => history.push('/carousel/rotterdam')}>Rotterdam</Button>
         <Button color="inherit" onClick={() => history.push('/dashboard')}>Dashboard</Button>
 
         {

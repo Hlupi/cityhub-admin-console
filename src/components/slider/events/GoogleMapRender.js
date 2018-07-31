@@ -49,18 +49,20 @@ const MapComponent = compose(
       defaultAnimation={google.maps.Animation.DROP}
       icon={markerCH}
     /> }
-
-    { dummyData.map((a, index) => <Marker
-      position={ {lat: a.lat, lng: a.lng} }
+      {console.log(props.data)}
+    { props.data.map((a, index) => 
+      <Marker
+      position={ {lat: +a.lat, lng: +a.lng} }
       defaultAnimation={ google.maps.Animation.DROP }
       key={ index }
     //   icon={{icon: }}
-      />) }
+      />
+    ) }
 
-
+{props.data.map(m => console.log(m))}
      { setTimeout(() =>  {
        const bounds = new window.google.maps.LatLngBounds()
-       dummyData.forEach(bound => bounds.extend(new window.google.maps.LatLng(bound.lat, bound.lng)))
+       props.data.forEach(bound => bounds.extend(new window.google.maps.LatLng(+bound.lat, +bound.lng)))
        this.map.fitBounds(bounds)
        this.map.panToBounds(bounds);
        }, 2000)}
@@ -70,8 +72,7 @@ const MapComponent = compose(
 
 class GoogleMapRender extends React.PureComponent {
 
-  render() {
-      const eventData = this.props.data
+  render() { 
     return (
          <MapComponent data={this.props.data}/>
     )

@@ -12,7 +12,7 @@ export default class Events extends PureComponent {
             <div>
                 <img src={logo} className='logoStyle' alt=''/>
                 <div className='divSlide'>
-                    <GoogleMapRender data={this.props.data.eventsToday}/>
+                    <GoogleMapRender data={this.props.data.eventsToday} params={this.props.params}/>
                 </div>
                 <div className='legend'>
                      {this.props.data.eventsToday.map(item => (<div key={item.id}>

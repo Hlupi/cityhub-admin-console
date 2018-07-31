@@ -31,7 +31,7 @@ class TestCarousel extends Component {
 
                     if (item.source === "eventsList") {
                         return (
-                            <div key={item}><Events data={item}/></div>
+                            <div key={item}><Events data={item} params={this.param}/></div>
                         )
                     }
 

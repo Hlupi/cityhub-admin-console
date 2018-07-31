@@ -36,8 +36,10 @@ class EventsList extends PureComponent {
       if( events !== null &&
           events !== undefined) {
         return (
+          <div>
+            <h2>Content feed</h2>
+          
           <div className="eventsContainer">
-
 
             { events.map(event => {
               return(
@@ -45,6 +47,7 @@ class EventsList extends PureComponent {
               )
             })}
 
+          </div>
           </div>
         )
       } else return (<h1>Loading...</h1>)

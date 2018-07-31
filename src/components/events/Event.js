@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { updateEvent } from '../../actions/events'
-import Button from 'material-ui/Button'
+import Button from '@material-ui/core/Button'
 import EventForm from './EventForm'
 import './Events.css'
 
@@ -49,10 +49,9 @@ class Event extends PureComponent {
                 {
                       !this.state.edit &&
                       <Button
-                      color="primary"
                       variant="raised"
                       onClick={this.toggleEdit}
-                      className="edit-event"
+                      id='eventButton'
                       >
                       Edit
                       </Button>

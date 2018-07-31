@@ -13,18 +13,28 @@ class App extends Component {
       <Router>
         <div>
           <nav>
+            {/* {
+              user &&
+              <TopBar />
+            } */}
             <TopBar />
           </nav>
           <main style={{marginTop:75}}>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
-            <Route exact path="/console" component={AdminConsole} />
-            <Route exact path="/" render={ () => <Redirect to="/console" /> } />
+            <Route exact path="/dashboard" component={AdminConsole} />
+            {/* <Route exact path="/feed" component={AdminConsole} /> */}
+            <Route exact path="/" render={ () => <Redirect to="/dashboard" /> } />
           </main>
         </div>
       </Router>
     )
   }
 }
+
+// const mapStateToProps = state => ({
+//   user: state.user
+// })
 export default App
+// export default connect(mapStateToProps)(App)

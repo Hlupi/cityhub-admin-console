@@ -22,7 +22,7 @@ class InstagramConsole extends PureComponent {
     let response
     if(item.status === "declined"){
       response = "accepted"
-    } 
+    }
     if(item.status === "accepted"){
       response = "declined"
     }
@@ -34,13 +34,15 @@ class InstagramConsole extends PureComponent {
 
     const {instagram} = this.props
 
-    if (instagram !== undefined && 
+    if (instagram !== undefined &&
         instagram !== null &&
         instagram.hashtags !== undefined &&
         instagram.hashtags !== null ) {
       return (
+        <div>
+        <h2>Insta feed</h2>
         <div className="instagramContainer">
-          
+
           {instagram.hashtags
             .sort(function(a, b) {
               var statusA = a.status.toUpperCase();
@@ -58,19 +60,20 @@ class InstagramConsole extends PureComponent {
 
               return (
                 <div className="instagramItem" key={image.id}>
-                  <div className={image.status}><img src={image.displayUrl} className="instagramImage" /></div>
+                  <div className={image.status}><img src={image.displayUrl} className="instagramImage" alt=''/></div>
                   <div className="instagramStatus"><p>{image.status}</p></div>
                   <div className="instagramButton"><button onClick={bindItem}>Toggle</button></div>
                 </div>
               )
           })}
 
-        </div>  
+        </div>
+        </div>
       )
     }
 
-    
-    // Default 
+
+    // Default
     return (<h1>No Instagram Photos!</h1>)
   }
 }

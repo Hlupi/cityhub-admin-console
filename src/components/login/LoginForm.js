@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {TextField, Button} from 'material-ui';
+import {TextField, Button} from '@material-ui/core';
 import './login.css'
 
 export default class LoginForm extends PureComponent {
@@ -35,7 +35,7 @@ export default class LoginForm extends PureComponent {
           type="email"
 					name="email"
 					fullWidth
-          value={	this.state.email || '' } 
+          value={	this.state.email || '' }
           onChange={ this.handleChange }
           margin="normal"
         	/> </label>
@@ -56,7 +56,7 @@ export default class LoginForm extends PureComponent {
 					fullWidth
 					value={
 						this.state.password || ''
-					} onChange={ this.handleChange } 
+					} onChange={ this.handleChange }
        		/> </label>
 
 					{/* <button type="submit">Login</button> */}

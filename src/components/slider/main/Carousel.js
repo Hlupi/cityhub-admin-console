@@ -10,23 +10,23 @@ import { fetchSliderData } from '../../../actions/sliderData'
 import { fetchHostData } from '../../../actions/host'
 
 class TestCarousel extends Component {
+    state={autoPlay: true}
     param = this.props.match.params.location
 
     componentDidMount() {
         this.props.fetchSliderData(this.param)
         this.props.fetchHostData()
-        const timer = setInterval(() => window.location.reload(), 30*60000);
-        this.setState({timer});
+        // const timer = setInterval(() => window.location.reload(), 30*60000);
+        // this.setState({timer});
     }   
 
-    componentWillUnmount() {
-        this.clearInterval(this.state.timer);
-    }
+    // componentWillUnmount() {
+    //     this.clearInterval(this.state.timer);
+    // }
 
     render() {
         return (
-            <div>
-            <Carousel autoPlay interval={7000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false}>
+            <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={10000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false}>
                 {this.props.slider.map(item => {
                     if (item.source === "instagram") {
                         return (
@@ -36,13 +36,13 @@ class TestCarousel extends Component {
 
                     if (item.source === "eventsList") {
                         return (
-                            <div key={item}><Events data={item} params={this.param}/></div>
+                            <div key={item}><Events data={item} params={this.param} host={this.props.host}/></div>
                         )
                     }
 
                     if (item.source === "joke") {
                         return (
-                            <div key={item}><Joke data={item} /></div>
+                            <div key={item}><Joke data={item} host={this.props.host}/></div>
                         )
                     }
 
@@ -51,10 +51,8 @@ class TestCarousel extends Component {
                             <div key={item}><Event data={item} host={this.props.host}/></div>
                         )
                     }
-
             })}
-            </Carousel>            
-            </div>
+            </Carousel>             
         )
     }
 }

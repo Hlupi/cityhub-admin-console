@@ -5,7 +5,7 @@ import { GoogleMapsStyle } from './GoogleMapsStyle'
 import { ApiKey } from './Key'
 import '../main/carousel.css'
 import markerCH from '../images/CH-logo.png'
-import redCH from '../images/red-marker.png'
+import redCH from '../images/red-marker1.png'
 /*global google*/
 
 const cities = [

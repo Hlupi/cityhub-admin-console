@@ -21,7 +21,7 @@ export default class Instagram extends PureComponent {
 
                 <div className='legend'>
                     <div className='titleBlock'>
-                        <img src={this.props.data.profile_pic_url} className='hostPic' />
+                        <img src={this.props.data.profile_pic_url} className='hostPic' alt=''/>
                         <h3 className='hostName'>{this.props.data.user_name}<br/> <span className='cityHub'>{this.props.data.full_name}</span></h3>
                     </div>
                     <p className='textField'>{textBlack}</p>

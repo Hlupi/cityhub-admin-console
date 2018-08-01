@@ -4,7 +4,8 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 import { GoogleMapsStyle } from './GoogleMapsStyle'
 import { ApiKey } from './Key'
 import '../main/carousel.css'
-import markerCH from '../images/pin-black&w-logo.png'
+import markerCH from '../images/CH-logo.png'
+import redCH from '../images/red-marker.png'
 /*global google*/
 
 const cities = [
@@ -40,7 +41,7 @@ const MapComponent = compose(
       position={ {lat: +a.lat, lng: +a.lng} }
       defaultAnimation={ google.maps.Animation.DROP }
       key={ index }
-    //   icon={{icon: }}
+      icon={redCH}
       />
     ) }
      { setTimeout(() =>  {

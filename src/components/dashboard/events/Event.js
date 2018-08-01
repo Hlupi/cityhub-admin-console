@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { updateEvent } from '../../../actions/events'
+import { updateEvent, deleteEvent } from '../../../actions/events'
 import Button from '@material-ui/core/Button'
 import EventForm from './EventForm'
 import './Events.css'
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 class Event extends PureComponent {
   state = {
@@ -23,6 +25,11 @@ class Event extends PureComponent {
     this.props.updateEvent(event)
     this.toggleEdit()
     }
+  //
+  // deleteEvent = (event) => {
+  //   event.id = this.props.event.id
+  //   this.props.deleteEvent(event)
+  // }
 
 
     render() {
@@ -55,7 +62,14 @@ class Event extends PureComponent {
                       >
                       Edit
                       </Button>
+
                     }
+                    {/* <Button variant="raised" onClick={this.deleteEvent} id='eventButton'>
+                  Delete
+                    </Button> */}
+                    <IconButton aria-label="Delete">
+                      <DeleteIcon />
+                    </IconButton>
 
                     {
                         this.state.edit &&
@@ -77,4 +91,4 @@ class Event extends PureComponent {
         events: state.events
       }
     }
-    export default connect(mapStateToProps, { updateEvent })(Event)
+    export default connect(mapStateToProps, { updateEvent, deleteEvent })(Event)

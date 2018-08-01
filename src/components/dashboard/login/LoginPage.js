@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {login} from '../../../actions/users'
 import LoginForm from './LoginForm'
 import {Redirect} from 'react-router-dom'
+import logo from '../images/cityhub-logo-black.svg'
 
 import './login.css'
 
@@ -18,7 +19,9 @@ class LoginPage extends PureComponent {
 
 		return (
 			<div className="loginPageContainer">
-				<h1>Login</h1>
+				<img src={logo} width='200px' alt=''/>
+				{/* <h1>AMSTERDAM</h1> */}
+				<h2>Log in to your account</h2>
 
 				<LoginForm onSubmit={this.handleSubmit} />
 

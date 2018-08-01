@@ -8,7 +8,6 @@ class SingleEvent extends PureComponent {
   param = this.props.match.params.id
 
   handleDate = (date) => {
-    console.log(date)
     return date.split('T')[0]
   }
 

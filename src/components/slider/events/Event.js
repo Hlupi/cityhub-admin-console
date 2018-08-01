@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import '../main/carousel.css'
 import logo from '../images/cityhub-logo-black.svg'
-
+const QRCode = require('qrcode.react')
 
 export default class Event extends PureComponent {
     state = {}
@@ -32,6 +32,9 @@ export default class Event extends PureComponent {
                     <p><i>{this.props.data.address}</i></p>
                     <p>{this.startTime}</p>
                     {timeOld !== null && <p>{startTime} / {endTime}</p>}
+                    
+                    <QRCode value={ `${window.location.origin}/singleevent/${this.props.data.id}` } />
+                    {console.log(`${window.location.origin}/singleevent/${this.props.data.id}`)}
                 </div>
             </div>
         )

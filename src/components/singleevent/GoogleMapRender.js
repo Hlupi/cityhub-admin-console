@@ -36,8 +36,6 @@ props.data && (
       defaultAnimation={google.maps.Animation.DROP}
       icon={markerCH}
     /> }
-      { props.data && console.log(cities[0][props.data.location])}
-      { props.data && console.log(props.data.location)}
       { <Marker
       position={{lat: (props.data && +props.data.lat), lng: (props.data && +props.data.lng)}}
       defaultAnimation={google.maps.Animation.DROP}

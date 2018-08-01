@@ -184,7 +184,7 @@
 
     .carousel .divSlide {
         width: 60%;
-        height: 1000px;
+        height: 950px;
         vertical-align: top;
         float: left;
         border: 0;
@@ -214,7 +214,7 @@
         -o-transition: all 0.5s ease-in-out;
         transition: all 0.5s ease-in-out;
         position: absolute;
-        top: 200px;
+        top: 160px;
         right: 120px;
         /* float: right; */
         /* left: 50%; */
@@ -225,52 +225,21 @@
         padding: 10px;
         font-size: 12px;
       }
-    .carousel .control-dots {
-      position: absolute;
-      bottom: 0;
-      margin: 10px 0;
-      text-align: center;
-      width: 100%; }
-      @media (min-width: 960px) { */
-        .carousel .control-dots {
-          bottom: 0; } }
-      .carousel .control-dots .dot {
-        -webkit-transition: opacity 0.25s ease-in;
-        -moz-transition: opacity 0.25s ease-in;
-        -ms-transition: opacity 0.25s ease-in;
-        -o-transition: opacity 0.25s ease-in;
-        transition: opacity 0.25s ease-in;
-        opacity: 0.3;
-        filter: alpha(opacity=30);
-        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
-        background: #fff;
-        border-radius: 50%;
-        width: 8px;
-        height: 8px;
-        cursor: pointer;
-        display: inline-block;
-        margin: 0 8px; }
-        .carousel .control-dots .dot.selected, .carousel .control-dots .dot:hover {
-          opacity: 1;
-          filter: alpha(opacity=100); }
-    .carousel .carousel-status {
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 5px;
-      font-size: 10px;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
-      color: #fff; }
-    .carousel:hover .slide .legend {
-      opacity: 1; }
+    
 
-      .text{
-          float: right;
-          color:black;
-          position: fixed;
-          right: 20%;
-          top: 10%;
-      }
+.carousel .slide .legend .hostPic {
+  border-radius: 50%;
+  width: 20%;
+  float: left;
+}
+.clearfix{
+  clear:both
+}
+
+.textField {
+  clear:both;
+  margin-top: 5px;
+}
 
 h1 {
   font-family: 'Brown-Bold';
@@ -283,9 +252,9 @@ h1 {
 }
 
 .logoStyle {
-  margin-top: 70px;
+  margin-top: 50px;
   float: right;
-  margin-right: 7%;
+  margin-right: 5%;
 }
 
 
@@ -356,4 +325,44 @@ h1 {
 .jokeText {
   font-size: 22px;
   font-family: 'Brown-Regular';
+}
+
+.hostName {
+    width:70%;
+    float: left;
+    padding-left: 30px;
+    display: block;
+    padding-bottom: 50px;
+    font-size: 24px;
+    font-family: 'Brown-Regular';
+}
+
+.cityHub {
+  font-size: 18px;
+  font-weight: 300;
+
+}
+
+.titleBlock {
+  clear: both;
+}
+
+.lineStyle {
+  border-bottom:solid 1px black;
+}
+
+.lineStyle:first-of-type {
+  display: none;
+}
+
+.numberLeft {
+  float: left;
+  transform: scale(5);
+  padding-top: 11px;
+}
+
+.textRight {
+  float: left;
+  padding-left: 40px;
+  line-height: 15px;
 }

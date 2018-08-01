@@ -23,9 +23,11 @@ export default class Event extends PureComponent {
                     <img src={this.props.data.image} className='instaImage' alt=''/>
                 </div>
                 <div className='legend'>
-                    <p>{this.props.host.FirstName}</p>
-                    <p>{this.props.host.Picture}</p>
+                    <img src={this.props.host.Picture} className='hostPic' alt=''/>
+                    <h3 className='hostName'>{this.props.host.FirstName}<br /> <span className='cityHub'>CityHub</span></h3>
+                    <div className='titleBlock'>
                     <h1>{this.props.data.title}</h1>
+                    </div>
                     <p>{this.props.data.description}</p>
                     <p><i>{this.props.data.address}</i></p>
                     <p>{this.startTime}</p>
@@ -35,3 +37,6 @@ export default class Event extends PureComponent {
         )
     }
 }
+
+
+

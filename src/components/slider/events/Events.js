@@ -15,9 +15,18 @@ export default class Events extends PureComponent {
                     <GoogleMapRender data={this.props.data.eventsToday} params={this.props.params}/>
                 </div>
                 <div className='legend'>
-                     {this.props.data.eventsToday.map(item => (<div key={item.id}>
-                        <h1>{item.title}</h1>
-                        <p>{item.description}</p><br /><hr />
+                    <img src={this.props.host.Picture} className='hostPic' alt=''/>
+                    <h3 className='hostName'>{this.props.host.FirstName}<br/> <span className='cityHub'>CityHub</span></h3>
+                     {this.props.data.eventsToday.map((item, index) => (<div key={item.id} className='titleBlock'>
+                            <div className='numberLeft'>
+                                <p>{index + 1}</p>
+                            </div>
+                            <div className='textRight'>
+                                <h1>{item.title}</h1>
+                                <p>{item.description}</p>
+                                <p><i>{item.address}</i></p>
+                            </div>
+                            <div className='lineStyle'></div>
                     </div>))}
                 </div>
             </div>

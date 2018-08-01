@@ -15,6 +15,12 @@ class TestCarousel extends Component {
     componentDidMount() {
         this.props.fetchSliderData(this.param)
         this.props.fetchHostData()
+        const timer = setInterval(() => window.location.reload(), 30*60000);
+        this.setState({timer});
+    }
+
+    componentWillUnmount() {
+        this.clearInterval(this.state.timer);
     }
 
     render() {
@@ -31,7 +37,7 @@ class TestCarousel extends Component {
 
                     if (item.source === "eventsList") {
                         return (
-                            <div key={item}><Events data={item} params={this.param}/></div>
+                            <div key={item}><Events data={item} params={this.param} host={this.props.host}/></div>
                         )
                     }
 

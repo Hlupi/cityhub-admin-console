@@ -20,10 +20,13 @@ export default class Instagram extends PureComponent {
                 </div>
 
                 <div className='legend'>
-                    <h1>{this.props.data.name}</h1>
-                    <p>{textBlack}</p>
+                    <div className='titleBlock'>
+                        <img src={this.props.data.profile_pic_url} className='hostPic' />
+                        <h3 className='hostName'>{this.props.data.user_name}<br/> <span className='cityHub'>{this.props.data.full_name}</span></h3>
+                    </div>
+                    <p className='textField'>{textBlack}</p>
                     <p className='blueHashtag'>{textBlue}</p>
-                    <table className='tableStyle'>
+                    <table>
                         <tbody>
                             <tr>
                                 <td className='instaHashSign'><img src={instaLogo} width='40px' alt=''/></td>

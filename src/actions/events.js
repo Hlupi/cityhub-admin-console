@@ -103,3 +103,18 @@ const editMessage = message => ({
   type: EDIT_MESSAGE,
   payload: message
 })
+
+export const GET_SINGLE_EVENT = 'GET_SINGLE_EVENT'
+export const getSingleEventSuccess = (data) => ({
+  type: GET_SINGLE_EVENT,
+  payload: data
+})
+
+//Get Single Event
+export const getSingleEvent = (id) => (dispatch) => {
+  console.log(id)
+  request
+  .get(`${baseUrl}/events/${id}`)
+  .then(result => dispatch(getSingleEventSuccess(result.body)))
+  .catch(err => console.error(err))
+}

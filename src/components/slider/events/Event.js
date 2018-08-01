@@ -2,16 +2,6 @@ import React, {PureComponent} from 'react'
 import '../main/carousel.css'
 import logo from '../images/cityhub-logo-black.svg'
 
-// const request = require('superagent');
-
-// const imageChecker = (url) => {
-//   request
-//   .get(url)
-//   .then(() => url)
-//   .catch(() => 'http://cdn.ebaumsworld.com/mediaFiles/picture/2453506/85681090.jpg')
-// }
-
-
 
 export default class Event extends PureComponent {
     state = {}
@@ -33,6 +23,8 @@ export default class Event extends PureComponent {
                     <img src={this.props.data.image} className='instaImage' alt=''/>
                 </div>
                 <div className='legend'>
+                    <p>{this.props.host.FirstName}</p>
+                    <p>{this.props.host.Picture}</p>
                     <h1>{this.props.data.title}</h1>
                     <p>{this.props.data.description}</p>
                     <p><i>{this.props.data.address}</i></p>

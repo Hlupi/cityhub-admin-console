@@ -41,7 +41,7 @@ props.data && (
       { <Marker
       position={{lat: (props.data && +props.data.lat), lng: (props.data && +props.data.lng)}}
       defaultAnimation={google.maps.Animation.DROP}
-      // icon={markerCH}
+      icon={markerCH}
     /> }
      { setTimeout(() =>  {
        const bounds = new window.google.maps.LatLngBounds()

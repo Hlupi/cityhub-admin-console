@@ -1,19 +1,40 @@
 import React, { PureComponent } from 'react'
 import './MessageBar.css'
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
+import {connect} from 'react-redux'
+import {getMessages} from '../../../actions/events'
+import Marquee from 'react-smooth-marquee'
+
 
 class MessageBar extends PureComponent {
 
+  componentDidMount(){
+    this.props.getMessages(this.props.currentCity)
+  }
+
   render() {
-    return (
-      <div id="container">
-        <div id="body"></div>
-        <div id="footer">MESSAGE</div>
-      </div>
-    )
+
+    const { messages } = this.props
+    if( messages !== null &&
+        messages !== undefined) {
+          return (
+            <div id="container">
+              <div id="header"></div>
+              <div id="body"></div>
+              <div id="footer"><Marquee>{messages.text}</Marquee></div>
+            </div>
+          )
+        } else return (<div id="container">
+          <div id="body"></div>
+          <div id="footer"><p>Loading the message..</p></div>
+        </div>)
+
   }
 }
 
-export default MessageBar
+const mapStateToProps = function (state) {
+  return {
+    messages: state.messages
+  }
+}
+
+export default connect(mapStateToProps, {getMessages})(MessageBar)

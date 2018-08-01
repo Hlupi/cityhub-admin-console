@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import {getEvents, createEvent} from '../../../actions/events'
-import {createMessage} from '../../../actions/events'
+import {updateMessage} from '../../../actions/events'
 import {getInstagram} from '../../../actions/instagram'
 import {getUsers} from '../../../actions/users'
 import {connect} from 'react-redux'
@@ -20,8 +20,19 @@ class AdminConsole extends PureComponent {
     this.props.createEvent(event)
   }
 
-  createMessage = (message) => {
-    this.props.createMessage(message)
+  updateMessage = async (message) => {
+    const {users} = this.props
+
+    if (await users !== null) {
+      const user = Object.keys(users)
+      const city = this.props.users[+user[0]].city
+      message.city = city
+      this.props.updateMessage(message)
+    } else {
+      console.log("not working")
+    }
+
+
   }
 
   componentDidMount() {
@@ -35,9 +46,14 @@ class AdminConsole extends PureComponent {
   }
 
   render() {
+
+
     const {users} = this.props
 
+
     if (users !== null) {
+      const user = Object.keys(users)
+      const currentCity = this.props.users[+user[0]].city
       return (
         <div>
 
@@ -47,25 +63,25 @@ class AdminConsole extends PureComponent {
             <h1>DASHBOARD</h1>
             <Grid container spacing={24}>
               <Grid item xs={12} sm={6}>
-                <MessageForm onSubmit={this.createMessage}/>
+                <MessageForm onSubmit={this.updateMessage}/>
               </Grid>
 
               <Grid item xs={12} sm={6}>
-                <EventForm onSubmit={this.createEvent} />
+                <EventForm onSubmit={this.createEvent} currentCity={currentCity}/>
               </Grid>
 
               <Grid item xs={12} sm={6}>
-                <InstagramConsole instagram={this.props.instagram}/>
+                <InstagramConsole instagram={this.props.instagram} currentCity={currentCity}/>
               </Grid>
 
               <Grid item xs={12} sm={6}>
-                <EventsList />
+                <EventsList currentCity={currentCity}/>
               </Grid>
 
             </Grid>
           </div>
 
-          <MessageBar />
+          <MessageBar currentCity={currentCity}/>
         </div>
       )
     }
@@ -98,4 +114,4 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps, {getUsers, getEvents, getInstagram, createEvent, createMessage})(AdminConsole)
+export default connect(mapStateToProps, {getUsers, getEvents, getInstagram, createEvent, updateMessage})(AdminConsole)

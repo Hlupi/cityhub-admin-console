@@ -8,6 +8,7 @@ import AdminConsole from './components/dashboard/main/AdminConsole'
 import './App.css'
 import TopBar from './components/dashboard/layout/TopBar'
 import  TestCarousel  from './components/slider/main/Carousel';
+import SingleEvent from './components/singleevent/SingleEvent';
 
 class App extends Component {
 
@@ -30,6 +31,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/dashboard" component={AdminConsole} />
             <Route exact path="/carousel/:location" component={TestCarousel} />
+            <Route exact path="/singleevent/:id" component={SingleEvent} />
             <Route exact path="/" render={ () => <Redirect to="/dashboard" /> } />
           </main>
         </div>

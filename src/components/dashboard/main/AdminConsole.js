@@ -1,10 +1,9 @@
 import React, {PureComponent} from 'react'
-import {getEvents, createEvent} from '../../../actions/events'
-import {updateMessage} from '../../../actions/events'
+import {getEvents, createEvent, updateMessage} from '../../../actions/events'
+// import {updateMessage} from '../../../actions/events'
 import {getInstagram} from '../../../actions/instagram'
 import {getUsers} from '../../../actions/users'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
 import EventForm from '../events/EventForm'
 import MessageForm from '../messages/MessageForm'
 import EventsList from '../events/EventsList'
@@ -13,6 +12,7 @@ import InstagramConsole from '../instagram/InstagramConsole'
 import './AdminConsole.css'
 import logo from '../images/cityhub-logo-black.svg'
 import MessageBar from '../messages/MessageBar'
+import Button from '@material-ui/core/Button'
 
 class AdminConsole extends PureComponent {
 
@@ -48,7 +48,7 @@ class AdminConsole extends PureComponent {
   render() {
 
 
-    const {users} = this.props
+    const {users, history} = this.props
 
 
     if (users !== null) {
@@ -88,9 +88,12 @@ class AdminConsole extends PureComponent {
 
     if (users === null || users === undefined) {
       return (
-        <div>
+        <div className="else">
           <h1>Please login to access the console</h1>
-          <Link to="/login">Login</Link>
+          <Button
+            variant="raised"
+            onClick={() => history.push(`/login`)}
+            id='eventButton'>Log in</Button>
         </div>
       )
     }

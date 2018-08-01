@@ -64,6 +64,27 @@ const editEvent = event => ({
   payload: event
 })
 
+
+// delete a specific event
+export const deleteEvent = (eventid) => (dispatch, getState) => {
+  console.log(eventid)
+  const state = getState()
+  const jwt = state.currentUser.jwt
+
+  request
+  .delete(`${baseUrl}/events/${eventid.id}`)
+  .set('Authorization', `Bearer ${jwt}`)
+  .then(result => dispatch(removeEvent(result.body)))
+  .catch(err => console.error(err))
+}
+
+// Dispatch Action to store
+export const REMOVE_EVENT = 'REMOVE_EVENT'
+const removeEvent = event => ({
+  type: REMOVE_EVENT,
+  payload: event
+})
+
 // Create a new message on server
 export const createMessage = (newMessage) => (dispatch, getState) => {
   const state = getState()

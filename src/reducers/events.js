@@ -1,5 +1,5 @@
 import {USER_LOGOUT} from '../actions/users'
-import {ADD_EVENT, UPDATE_EVENTS, EDIT_EVENT} from '../actions/events'
+import {ADD_EVENT, UPDATE_EVENTS, EDIT_EVENT, REMOVE_EVENT} from '../actions/events'
 
 export default (state = null, {type, payload}) => {
   switch (type) {
@@ -25,6 +25,12 @@ export default (state = null, {type, payload}) => {
         ...state,
         payload
       ]
+
+      // Remove Event
+    case REMOVE_EVENT:
+      const copy = [...state]
+      const eventId = copy.find(element => element.id = payload.id)
+      return copy.splice(eventId,1)
 
 
     // Default

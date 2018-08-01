@@ -2,7 +2,6 @@ import React, {PureComponent} from 'react'
 import {getInstagram, updateStatus} from '../../../actions/instagram'
 import {getUsers} from '../../../actions/users'
 import {connect} from 'react-redux'
-
 import './instagram.css'
 
 class InstagramConsole extends PureComponent {
@@ -32,18 +31,28 @@ class InstagramConsole extends PureComponent {
 
   render() {
 
+
+
     const {instagram} = this.props
 
     if (instagram !== undefined &&
         instagram !== null &&
         instagram.hashtags !== undefined &&
         instagram.hashtags !== null ) {
+
+
+      // console.log('INSTAGRAM PROPS',instagram)
+      // console.log('THIS CITY',typeof(this.props.currentCity))
+
       return (
         <div>
         <h2>Insta feed</h2>
         <div className="instagramContainer">
 
           {instagram.hashtags
+            .filter(image => {return image.location === this.props.currentCity})
+            // .map(x => {console.log(x.location === this.props.currentCity)})
+            // .map(x => {console.log(typeof(x.location))})
             .sort(function(a, b) {
               var statusA = a.status.toUpperCase();
               var statusB = b.status.toUpperCase();

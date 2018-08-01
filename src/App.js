@@ -9,7 +9,6 @@ import './App.css'
 import TopBar from './components/dashboard/layout/TopBar'
 import  TestCarousel  from './components/slider/main/Carousel';
 import SingleEvent from './components/singleevent/SingleEvent';
-
 class App extends Component {
 
   render() {

@@ -19,6 +19,7 @@ import { fetchHostData } from '../../../actions/host'
         this.props.fetchHostData()
         const timer = setInterval(() => window.location.reload(), 1000 * 120);
         this.setState({timer});
+
     }
 
     componentWillUnmount() {
@@ -29,11 +30,12 @@ import { fetchHostData } from '../../../actions/host'
         
         return (
             <div>
+
                     <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={1000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
             
             
                 {
-                 
+            
                     this.props.slider.map(item => {
                     if (item.source === "instagram") {
                         return (
@@ -60,7 +62,7 @@ import { fetchHostData } from '../../../actions/host'
                     }
 
             })}
-            </Carousel>
+            </Carousel>)}
             </div>
         )
     }

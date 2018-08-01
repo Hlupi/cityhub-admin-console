@@ -15,7 +15,7 @@ class LogoutPage extends PureComponent {
 
 		return (
 			<div>
-				<h1>Logging out...</h1>
+				<h1 className="else">Logging out...</h1>
 			</div>
 		)
 	}

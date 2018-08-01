@@ -60,8 +60,8 @@ export default class LoginForm extends PureComponent {
        		/> </label>
 
 					{/* <button type="submit">Login</button> */}
-					<Button color="default" type="submit" id="loginButton">
-						Login
+					<Button type="submit" id='eventButton'>
+						Log in
 					</Button>
 
   			</form>

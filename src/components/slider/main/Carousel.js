@@ -15,19 +15,20 @@ class TestCarousel extends Component {
     componentDidMount() {
         this.props.fetchSliderData(this.param)
         this.props.fetchHostData()
-        const timer = setInterval(() => window.location.reload(), 30*60000);
-        this.setState({timer});
+        // const timer = setInterval(() => window.location.reload(), 10000);
+        // this.setState({timer});
     }
 
-    componentWillUnmount() {
-        this.clearInterval(this.state.timer);
-    }
+    // componentWillUnmount() {
+    //     this.clearInterval(this.state.timer);
+    // }
 
     render() {
+        const status = true
         console.log(this.props.host)
         return (
             <div>
-            <Carousel autoPlay interval={15000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false}>
+            <Carousel autoPlay={status} interval={5000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false}>
                 {this.props.slider.map(item => {
                     if (item.source === "instagram") {
                         return (

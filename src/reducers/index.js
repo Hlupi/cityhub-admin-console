@@ -5,6 +5,7 @@ import login from './login'
 import currentUser from './currentUser'
 import signup from './signup'
 import sliderData from './sliderData'
+import singleEvent from './singleEvent'
 
 export default {
   events,
@@ -13,5 +14,6 @@ export default {
   login,
   currentUser,
   signup,
-  sliderData
+  sliderData,
+  singleEvent
 }

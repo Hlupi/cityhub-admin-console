@@ -5,24 +5,10 @@ import Event from './Event.js'
 import './Events.css'
 
 class EventsList extends PureComponent {
-  state = {
-    edit: false,
-    selectedItem: null
-  }
-
-  toggleEdit = () => {
-    this.setState({
-      edit: !this.state.edit
-    })
-  }
 
   componentDidMount() {
     this.props.getEvents()
     }
-
-  handleClick(id) {
-    this.setState({ selectedItem: id })
-  }
 
   updateEvent = (event) => {
     this.props.updateEvent()
@@ -41,7 +27,8 @@ class EventsList extends PureComponent {
 
           <div className="eventsContainer">
 
-            { events.map(event => {
+            { events.filter(event=> {return event.location === this.props.currentCity})
+              .map(event => {
               return(
                 <Event event={event} key={event.id}/>
               )

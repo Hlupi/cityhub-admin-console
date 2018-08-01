@@ -17,10 +17,10 @@
 }
 
 .event-image {
-  /* object-fit: cover;
+  object-fit: cover;
   width: 100px;
   height: 100px;
-  padding: 10px; */
+  padding: 10px;
 }
 
 .eventForm {
@@ -29,6 +29,6 @@
 
 #eventButton {
     color: white;
-    background-color: #50CB86;
+    background-color: #3cbfb4;
 
 }

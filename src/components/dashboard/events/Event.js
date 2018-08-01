@@ -8,7 +8,6 @@ import './Events.css'
 class Event extends PureComponent {
   state = {
     edit: false,
-    // values: EventForm.initialValues,
     id: this.props.event.id
   }
 
@@ -20,17 +19,10 @@ class Event extends PureComponent {
 
 
   updateEvent = (event) => {
-    // console.log(event)
     event.id = this.state.id
-    // console.log(event)
     this.props.updateEvent(event)
     this.toggleEdit()
     }
-
-  componentDidMount() {
-  // console.log('EVENT', EventForm)
-  }
-
 
 
     render() {
@@ -48,7 +40,7 @@ class Event extends PureComponent {
           event !== null) {
             return (
               <div className="events-list-item">
-                <img src={event.image} className="event-image" alt='' />
+                {event.image && <img src={event.image} className="event-image" alt='' />}
                 <p> {event.title} </p>
                 <p> {event.description} </p>
                 <p> {event.address} </p>

@@ -84,13 +84,35 @@ const addMessage = message => ({
   payload: message
 })
 
+// Get messages
+export const getMessages = (city) => (dispatch, getState) => {
+  const state = getState()
+  if (!state.currentUser) return null
+  const jwt = state.currentUser.jwt
+
+  request
+    .get(`${baseUrl}/messages/${city}`)
+    .set('Authorization', `Bearer ${jwt}`)
+    // .send(city)
+    .then(result => dispatch(updateMessages(result.body)))
+    .catch(err => console.error(err))
+}
+
+// Dispatch action to store
+export const UPDATE_MESSAGES = 'UPDATE_MESSAGES'
+const updateMessages = messages => ({
+  type: UPDATE_MESSAGES,
+  payload: messages
+})
+
+
 //Edit a specific message
 export const updateMessage = (updates) => (dispatch, getState) => {
   const state = getState()
   const jwt = state.currentUser.jwt
 
   request
-  .patch(`${baseUrl}/events`)
+  .patch(`${baseUrl}/messages`)
   .set('Authorization', `Bearer ${jwt}`)
   .send(updates)
   .then(result => dispatch(editMessage(result.body)))

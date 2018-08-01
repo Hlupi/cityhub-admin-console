@@ -7,21 +7,27 @@ import Events from '../events/Events'
 import Joke from '../events/Joke'
 import { connect } from 'react-redux';
 import { fetchSliderData } from '../../../actions/sliderData'
-
-
+import { fetchHostData } from '../../../actions/host'
 
 class TestCarousel extends Component {
-
     param = this.props.match.params.location
 
     componentDidMount() {
         this.props.fetchSliderData(this.param)
+        this.props.fetchHostData()
+        const timer = setInterval(() => window.location.reload(), 30*60000);
+        this.setState({timer});
+    }
+
+    componentWillUnmount() {
+        this.clearInterval(this.state.timer);
     }
 
     render() {
+        console.log(this.props.host)
         return (
             <div>
-            <Carousel autoPlay interval={5000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false}>
+            <Carousel autoPlay interval={15000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false}>
                 {this.props.slider.map(item => {
                     if (item.source === "instagram") {
                         return (
@@ -31,7 +37,7 @@ class TestCarousel extends Component {
 
                     if (item.source === "eventsList") {
                         return (
-                            <div key={item}><Events data={item} params={this.param}/></div>
+                            <div key={item}><Events data={item} params={this.param} host={this.props.host}/></div>
                         )
                     }
 
@@ -43,7 +49,7 @@ class TestCarousel extends Component {
 
                     if (item.source === "event") {
                         return (
-                            <div key={item}><Event data={item}/></div>
+                            <div key={item}><Event data={item} host={this.props.host}/></div>
                         )
                     }
 
@@ -56,8 +62,9 @@ class TestCarousel extends Component {
 
 const mapStateToProps = function (state) {
     return {
-        slider: state.sliderData
+        slider: state.sliderData,
+        host: state.host
     }
 }
 
-export default connect(mapStateToProps, { fetchSliderData })(TestCarousel)
+export default connect(mapStateToProps, { fetchSliderData, fetchHostData })(TestCarousel)

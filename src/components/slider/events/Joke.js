@@ -4,6 +4,7 @@ import logo from '../images/cityhub-logo-black.svg'
 
 export default class Joke extends PureComponent {
     state = {}
+
     render() {
         return (
             <div>

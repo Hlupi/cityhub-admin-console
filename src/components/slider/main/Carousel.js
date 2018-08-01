@@ -8,6 +8,7 @@ import Joke from '../events/Joke'
 import { connect } from 'react-redux';
 import { fetchSliderData } from '../../../actions/sliderData'
 import { fetchHostData } from '../../../actions/host'
+import logo from '../images/cityhub-logo-black.svg'
 
 class TestCarousel extends Component {
     state={autoPlay: true}
@@ -16,6 +17,7 @@ class TestCarousel extends Component {
     componentDidMount() {
         this.props.fetchSliderData(this.param)
         this.props.fetchHostData()
+<<<<<<< HEAD
         // const timer = setInterval(() => window.location.reload(), 30*60000);
         // this.setState({timer});
     }   
@@ -52,9 +54,9 @@ class TestCarousel extends Component {
                         )
                     }
             })}
-            </Carousel>             
+            </Carousel>
         )
-    }
+    }   
 }
 
 const mapStateToProps = function (state) {

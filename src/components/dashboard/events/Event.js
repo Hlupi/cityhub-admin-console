@@ -25,11 +25,11 @@ class Event extends PureComponent {
     this.props.updateEvent(event)
     this.toggleEdit()
     }
-  //
-  // deleteEvent = (event) => {
-  //   event.id = this.props.event.id
-  //   this.props.deleteEvent(event)
-  // }
+
+  deleteEvent = (event) => {
+    event.id = this.props.event.id
+    this.props.deleteEvent(event)
+  }
 
 
     render() {
@@ -64,10 +64,8 @@ class Event extends PureComponent {
                       </Button>
 
                     }
-                    {/* <Button variant="raised" onClick={this.deleteEvent} id='eventButton'>
-                  Delete
-                    </Button> */}
-                    <IconButton aria-label="Delete">
+                    
+                    <IconButton onClick={this.deleteEvent} aria-label="Delete">
                       <DeleteIcon />
                     </IconButton>
 

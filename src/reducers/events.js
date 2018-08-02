@@ -28,9 +28,7 @@ export default (state = null, {type, payload}) => {
 
       // Remove Event
     case REMOVE_EVENT:
-      const copy = [...state]
-      const eventId = copy.find(element => element.id = payload.id)
-      return copy.splice(eventId,1)
+      return state.filter(event => event.id !== payload.id)
 
 
     // Default

@@ -14,21 +14,23 @@ class TestCarousel extends Component {
     state={autoPlay: true}
     param = this.props.match.params.location
 
+
     componentDidMount() {
         this.props.fetchSliderData(this.param)
         this.props.fetchHostData()
-<<<<<<< HEAD
-        // const timer = setInterval(() => window.location.reload(), 30*60000);
-        // this.setState({timer});
-    }   
+        const timer = setInterval(() => window.location.reload(), 1000 * 120);
+        this.setState({timer});
+    }
+
 
     // componentWillUnmount() {
     //     this.clearInterval(this.state.timer);
     // }
 
-    render() {
+    render() {        
         return (
-            <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={10000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false}>
+            <div>
+                <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={1000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
                 {this.props.slider.map(item => {
                     if (item.source === "instagram") {
                         return (
@@ -55,6 +57,7 @@ class TestCarousel extends Component {
                     }
             })}
             </Carousel>
+            </div>
         )
     }   
 }

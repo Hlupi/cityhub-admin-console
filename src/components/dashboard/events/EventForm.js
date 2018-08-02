@@ -19,8 +19,9 @@ class EventForm extends PureComponent {
 				const data = this.state
 				data.lat = +lat
 				data.lng = +lng
-				data.location = this.props.currentCity
-				this.props.onSubmit(data)
+        data.location = this.props.currentCity
+        data.source= 'event'
+        this.props.onSubmit(data)
 			},
 			error => {
 					console.error(error);
@@ -35,7 +36,8 @@ class EventForm extends PureComponent {
 		await this.GeocodeAddress()
 	} else {
 		const data = this.state
-		data.location = this.props.currentCity
+    data.location = this.props.currentCity
+    data.source= 'event'
 		await this.props.onSubmit(data)
 	}
 

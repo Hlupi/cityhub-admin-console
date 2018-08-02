@@ -15,7 +15,7 @@ export default (state = null, {type, payload}) => {
     ]
 
   case EDIT_MESSAGE:
-  return payload
+    return payload
 
   default:
   return state

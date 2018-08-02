@@ -26,15 +26,17 @@ export default class Event extends PureComponent {
                     <img src={this.props.host.Picture} className='hostPic' alt=''/>
                     <h3 className='hostName'>{this.props.host.FirstName}<br /> <span className='cityHub'>CityHub</span></h3>
                     <div className='speech-bubble'>
-                        <div className='titleBlock'>
-                            <h1 className='eventStyle'>{this.props.data.title}</h1>
+                        <div className='liningStyle'>
+                            <div className='titleBlock'>
+                                <h1 className='eventStyle'>{this.props.data.title}</h1>
+                            </div>
+                            <h3 className='eventTextStyle'>{this.props.data.description}</h3>
+                            <p className='dateStyle'><i>where: {this.props.data.address}</i></p>
+                            <p>{this.startTime}</p>
+                            {timeOld !== null && <p className='dateStyle'><i>when: {startTime} / {endTime}</i></p>}
                         </div>
-                        <h3 className='eventTextStyle'>{this.props.data.description}</h3>
-                        <p><i>where: </i>{this.props.data.address}</p>
-                        <p>{this.startTime}</p>
-                        {timeOld !== null && <p><i>when:</i> {startTime} / {endTime}</p>}
                     </div>
-                    <div>
+                    <div className='QRsetting'>
                     <QRCode value={ `${window.location.origin}/singleevent/${this.props.data.id}` } />
                     {console.log(`${window.location.origin}/singleevent/${this.props.data.id}`)}
                     </div>

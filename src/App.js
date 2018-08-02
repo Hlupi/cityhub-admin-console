@@ -14,8 +14,6 @@ import Scraper from './components/dashboard/scraper/Scraper'
 class App extends Component {
 
   render() {
-
-   const {user} = this.props
     return (
       <Router>
         <div>
@@ -46,6 +44,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
+  message: state.message,
   user: state.users
 })
 // export default App

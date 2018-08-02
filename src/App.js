@@ -14,6 +14,7 @@ import Scraper from './components/dashboard/scraper/Scraper'
 class App extends Component {
 
   render() {
+    const { user } = this.props
     return (
       <Router>
         <div>

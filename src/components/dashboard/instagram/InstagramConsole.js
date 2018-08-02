@@ -6,6 +6,7 @@ import './instagram.css'
 import Collapse from '@material-ui/core/Collapse'
 import Switch from '@material-ui/core/Switch'
 import Button from '@material-ui/core/Button'
+import Scraper from '../scraper/Scraper'
 
 class InstagramConsole extends PureComponent {
 
@@ -64,6 +65,7 @@ class InstagramConsole extends PureComponent {
       return (
         <div>
         <h2>Insta feed</h2>
+        <Scraper />
         <div className="instagramContainer">
 
           {instagramPhotos.slice(0,4)

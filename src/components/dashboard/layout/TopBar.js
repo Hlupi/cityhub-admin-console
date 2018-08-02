@@ -34,18 +34,7 @@ const TopBar = (props) => {
 
         {
           user &&
-          location.pathname.indexOf('events/') > 0 &&
-          <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
-        }
-        {
-          !user &&
-          location.pathname.indexOf('events/') > 0 &&
-          <Button color="inherit" onClick={() => history.push('/login')}>Login</Button>
-        }
-        {
-          /console$/.test(location.pathname) &&
-          user &&
-          <Button color="inherit" onClick={() => history.push('/logout')}>Log out</Button>
+          <Button color="inherit" onClick={() => history.push('/logout')}>Logout</Button>
         }
       </Toolbar>
     </AppBar>

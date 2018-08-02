@@ -47,8 +47,8 @@ class Event extends PureComponent {
           event !== null) {
             return (
               <div className="events-list-item">
-                {event.image && <img src={event.image} className="event-image" alt='' />}
                 <p> {event.title} </p>
+                {event.image && <img src={event.image} className="event-image" alt='' />}
                 <p> {event.description} </p>
                 <p> {event.address} </p>
                 {timeOld !== null && <p>{startTime} – {endTime}</p>}
@@ -64,8 +64,8 @@ class Event extends PureComponent {
                       </Button>
 
                     }
-                    
-                    <IconButton onClick={this.deleteEvent} aria-label="Delete">
+
+                    <IconButton onClick={this.deleteEvent} aria-label="Delete" id="deleteButton">
                       <DeleteIcon />
                     </IconButton>
 

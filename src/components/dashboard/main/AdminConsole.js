@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button'
 import Scraper from '../scraper/Scraper'
 
 class AdminConsole extends PureComponent {
+  state = {}
 
   createEvent = (event) => {
     this.props.createEvent(event)

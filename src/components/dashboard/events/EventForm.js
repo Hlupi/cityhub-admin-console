@@ -41,9 +41,9 @@ class EventForm extends PureComponent {
 
 	// await this.setState({
 	// 	title: "",
+	// 	description: '',
 	// 	address: "",
 	// 	image: "",
-	// 	address: "",
 	// 	startDate: " ",
 	// 	endDate: " ",
 	// })
@@ -69,6 +69,7 @@ class EventForm extends PureComponent {
             label="Title"
             onChange={ this.handleChange }
             margin="normal"
+						fullWidth
             />
             <br />
             <TextField
@@ -76,6 +77,7 @@ class EventForm extends PureComponent {
             label="Description"
             onChange={ this.handleChange }
             margin="normal"
+						fullWidth
             />
             <br />
             <TextField
@@ -83,6 +85,7 @@ class EventForm extends PureComponent {
             label="Image URL"
             onChange={ this.handleChange }
             margin="normal"
+						fullWidth
             />
             <br />
             <TextField
@@ -90,6 +93,7 @@ class EventForm extends PureComponent {
             label="Address"
             onChange={ this.handleChange }
             margin="normal"
+						fullWidth
             />
             <br />
             <TextField
@@ -98,6 +102,7 @@ class EventForm extends PureComponent {
             label="Starts"
             onChange={ this.handleChange }
             margin="normal"
+						fullWidth
 						// value=" "
             />
             <br />
@@ -107,6 +112,7 @@ class EventForm extends PureComponent {
             label="Ends"
             onChange={ this.handleChange }
             margin="normal"
+						fullWidth
 						// value=" "
             />
 

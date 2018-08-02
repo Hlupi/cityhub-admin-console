@@ -19,14 +19,17 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
-            {/* {
+
+            {
               user &&
+              <nav>
               <TopBar />
-            } */}
-            <TopBar />
-          </nav>
-          <main style={{marginTop:75}}>
+              </nav>
+            }
+            {/* <TopBar /> */}
+
+          {/* <main style={{marginTop:75}}> */}
+            <main>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
@@ -43,7 +46,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.users
 })
 // export default App
 export default connect(mapStateToProps)(App)

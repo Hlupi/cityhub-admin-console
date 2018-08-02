@@ -5,6 +5,8 @@ import { GoogleMapsStyle } from './GoogleMapsStyle'
 import { ApiKey } from '../slider/events/Key'
 // import '../main/carousel.css'
 import markerCH from '../slider/images/pin-black&w-logo.png'
+
+import markerEv from '../slider/images/red-marker.png'
 /*global google*/
 
 const cities = [
@@ -39,7 +41,7 @@ props.data && (
       { <Marker
       position={{lat: (props.data && +props.data.lat), lng: (props.data && +props.data.lng)}}
       defaultAnimation={google.maps.Animation.DROP}
-      icon={markerCH}
+      icon={markerEv}
     /> }
      { setTimeout(() =>  {
        const bounds = new window.google.maps.LatLngBounds()

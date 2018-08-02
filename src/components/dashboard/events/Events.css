@@ -25,10 +25,15 @@
 
 .eventForm {
   text-align: center;
+  margin: auto 40px;
 }
 
 #eventButton {
     color: white;
     background-color: #3cbfb4;
+    margin-top: 15px;
+}
 
+#deleteButton {
+  margin-top: 15px;
 }

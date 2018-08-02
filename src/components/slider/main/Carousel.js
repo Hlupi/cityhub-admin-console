@@ -21,10 +21,6 @@ class TestCarousel extends Component {
         const timer = setInterval(() => window.location.reload(), 1000 * 120);
         this.setState({timer});
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 09e4882ea333acbc2c4b165f583cce9536e459e8
 
     // componentWillUnmount() {
     //     this.clearInterval(this.state.timer);
@@ -33,8 +29,7 @@ class TestCarousel extends Component {
     render() {        
         return (
             <div>
-                <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={1000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
-<<<<<<< HEAD
+                <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={6000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
                     {this.props.slider.map(item => {
 
                         if (item.source === "instagram") {
@@ -51,7 +46,7 @@ class TestCarousel extends Component {
 
                         if (item.source === "joke") {
                             return (
-                                <div key={item}><Joke data={item} /></div>
+                                <div key={item}><Joke data={item} host={this.props.host}/></div>
                             )
                         }
 
@@ -61,35 +56,7 @@ class TestCarousel extends Component {
                             )
                         }
                 })}
-                </Carousel>)}
-=======
-                {this.props.slider.map(item => {
-                    if (item.source === "instagram") {
-                        return (
-                            <div key={item}><Instagram data={item} /></div>
-                        )
-                    }
-
-                    if (item.source === "eventsList") {
-                        return (
-                            <div key={item}><Events data={item} params={this.param} host={this.props.host}/></div>
-                        )
-                    }
-
-                    if (item.source === "joke") {
-                        return (
-                            <div key={item}><Joke data={item} host={this.props.host}/></div>
-                        )
-                    }
-
-                    if (item.source === "event") {
-                        return (
-                            <div key={item}><Event data={item} host={this.props.host}/></div>
-                        )
-                    }
-            })}
-            </Carousel>
->>>>>>> 09e4882ea333acbc2c4b165f583cce9536e459e8
+                </Carousel>
             </div>
         )
     }   

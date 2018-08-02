@@ -180,7 +180,9 @@
       margin: 0;
       position: relative;
       text-align: left;
-      background: white; }
+      background: white;
+      /* background-color: gray;  */
+      }
 
     .carousel .divSlide {
         width: 60%;
@@ -190,7 +192,7 @@
         border: 0;
         background-image: url('https://www.hotelprofessionals.nl/files/facebook/post/logo_9.png');
         background-size: 100%;
-        background-color:rgb(177, 177, 177);
+        background-color:#3cbfb4;
     }
 
     .carousel .divSlide .instaImage {
@@ -215,12 +217,9 @@
         transition: all 0.5s ease-in-out;
         position: absolute;
         top: 160px;
-        right: 120px;
-        /* float: right; */
-        /* left: 50%; */
+        right: 100px;
         width: 30%;
         border-radius: 10px;
-        /* background:gray; */
         color:black;
         padding: 10px;
         font-size: 12px;
@@ -257,9 +256,41 @@ h1 {
   margin-right: 5%;
 }
 
+.speech-bubble {
+	position: relative;
+	background: #efefef;
+  border-radius: .4em;
+  line-height: 1.3;
+  max-width: 500px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  padding-bottom: 40px;
+  margin: 0 auto;
+  margin-top: 150px;
+  box-shadow: 5px 5px 6px #B2B2B2;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 30px solid transparent;
+	border-bottom-color: #efefef;
+	border-top: 0;
+	border-left: 0;
+	margin-left: -15px;
+  margin-top: -30px;
+  filter: drop-shadow(0 0px 0px rgba(0,0,0,.5));
+  
+}
+
 
 /* speech-bubble */
-.speech-bubble-ds {
+/* .speech-bubble-ds {
   background: #efefef;
   border: 1px solid #a7a7a7;
   -webkit-border-radius: 4px;
@@ -268,13 +299,13 @@ h1 {
           box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
   font-size: 1.2rem;
   line-height: 1.3;
-  /* margin: 0 auto 40px; */
   max-width: 400px;
   padding: 15px;
   position: relative;
   text-align: center;
   padding-bottom: 40px;
   margin: 0 auto;
+  margin-top: 150px;
 }
 
 .speech-bubble-ds p {
@@ -306,7 +337,7 @@ h1 {
   content: "";
   position: absolute;
   right: 6px;
-}
+} */
 
 .blueHashtag {
   color: blue;
@@ -365,4 +396,13 @@ h1 {
   float: left;
   padding-left: 40px;
   line-height: 15px;
+}
+
+.eventStyle {
+  font-size: 38px;
+}
+
+.eventTextStyle {
+  font-size: 24px;
+  font-family: 'Brown-Regular';
 }

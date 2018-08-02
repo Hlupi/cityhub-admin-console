@@ -8,9 +8,10 @@ import Joke from '../events/Joke'
 import { connect } from 'react-redux';
 import { fetchSliderData } from '../../../actions/sliderData'
 import { fetchHostData } from '../../../actions/host'
+import logo from '../images/cityhub-logo-black.svg'
 
-    class TestCarousel extends Component {
-        state={autoPlay: true}
+class TestCarousel extends Component {
+    state={autoPlay: true}
     param = this.props.match.params.location
 
 
@@ -20,12 +21,20 @@ import { fetchHostData } from '../../../actions/host'
         const timer = setInterval(() => window.location.reload(), 1000 * 120);
         this.setState({timer});
     }
+<<<<<<< HEAD
+=======
 
-    render() {
-        
+>>>>>>> 09e4882ea333acbc2c4b165f583cce9536e459e8
+
+    // componentWillUnmount() {
+    //     this.clearInterval(this.state.timer);
+    // }
+
+    render() {        
         return (
             <div>
                 <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={1000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
+<<<<<<< HEAD
                     {this.props.slider.map(item => {
 
                         if (item.source === "instagram") {
@@ -53,9 +62,37 @@ import { fetchHostData } from '../../../actions/host'
                         }
                 })}
                 </Carousel>)}
+=======
+                {this.props.slider.map(item => {
+                    if (item.source === "instagram") {
+                        return (
+                            <div key={item}><Instagram data={item} /></div>
+                        )
+                    }
+
+                    if (item.source === "eventsList") {
+                        return (
+                            <div key={item}><Events data={item} params={this.param} host={this.props.host}/></div>
+                        )
+                    }
+
+                    if (item.source === "joke") {
+                        return (
+                            <div key={item}><Joke data={item} host={this.props.host}/></div>
+                        )
+                    }
+
+                    if (item.source === "event") {
+                        return (
+                            <div key={item}><Event data={item} host={this.props.host}/></div>
+                        )
+                    }
+            })}
+            </Carousel>
+>>>>>>> 09e4882ea333acbc2c4b165f583cce9536e459e8
             </div>
         )
-    }
+    }   
 }
 
 const mapStateToProps = function (state) {

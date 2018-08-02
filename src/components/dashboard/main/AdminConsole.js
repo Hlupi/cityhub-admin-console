@@ -15,6 +15,7 @@ import MessageBar from '../messages/MessageBar'
 import Button from '@material-ui/core/Button'
 
 class AdminConsole extends PureComponent {
+  state = {}
 
   createEvent = (event) => {
     this.props.createEvent(event)

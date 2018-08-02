@@ -22,12 +22,14 @@ class MessageForm extends PureComponent {
     return(
       <div>
         <h2>Messagebar</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className='messageForm'>
           <TextField
           id='text'
           label='Text'
           onChange={ this.handleChange }
-          margin="normal"/>
+          margin="normal"
+          fullWidth
+          />
           <br />
           <Button variant="raised" type="submit" id='eventButton'>
             Publish

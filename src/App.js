@@ -9,6 +9,8 @@ import './App.css'
 import TopBar from './components/dashboard/layout/TopBar'
 import  TestCarousel  from './components/slider/main/Carousel';
 import SingleEvent from './components/singleevent/SingleEvent';
+import Scraper from './components/dashboard/scraper/Scraper'
+
 class App extends Component {
 
   render() {
@@ -17,20 +19,24 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <nav>
-            {/* {
+
+            {
               user &&
+              <nav>
               <TopBar />
-            } */}
-            <TopBar />
-          </nav>
-          <main style={{marginTop:75}}>
+              </nav>
+            }
+            {/* <TopBar /> */}
+
+          {/* <main style={{marginTop:75}}> */}
+            <main>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/logout" component={LogoutPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/dashboard" component={AdminConsole} />
             <Route exact path="/carousel/:location" component={TestCarousel} />
             <Route exact path="/singleevent/:id" component={SingleEvent} />
+            <Route exact path="/scraper" component={Scraper} />
             <Route exact path="/" render={ () => <Redirect to="/dashboard" /> } />
           </main>
         </div>
@@ -40,7 +46,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.users
 })
 // export default App
 export default connect(mapStateToProps)(App)

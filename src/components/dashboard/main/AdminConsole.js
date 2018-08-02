@@ -13,8 +13,10 @@ import './AdminConsole.css'
 import logo from '../images/cityhub-logo-black.svg'
 import MessageBar from '../messages/MessageBar'
 import Button from '@material-ui/core/Button'
+import Scraper from '../scraper/Scraper'
 
 class AdminConsole extends PureComponent {
+  state = {}
 
   createEvent = (event) => {
     this.props.createEvent(event)
@@ -61,6 +63,7 @@ class AdminConsole extends PureComponent {
           <div className='header'>
             <img src={logo} width='200px' alt=''/>
             <h1>DASHBOARD</h1>
+            <Scraper />
             <Grid container spacing={24}>
               <Grid item xs={12} sm={6}>
                 <MessageForm onSubmit={this.updateMessage}/>

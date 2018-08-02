@@ -6,6 +6,7 @@ import Event from '../events/Event'
 import Events from '../events/Events'
 import Joke from '../events/Joke'
 import { connect } from 'react-redux';
+import {getUsers} from '../../../actions/users'
 import { fetchSliderData } from '../../../actions/sliderData'
 import { fetchHostData } from '../../../actions/host'
 import MessageBar from '../../dashboard/messages/MessageBar';
@@ -20,6 +21,10 @@ class TestCarousel extends Component {
         this.props.fetchHostData()
         const timer = setInterval(() => window.location.reload(), 1000 * 120);
         this.setState({timer});
+
+
+        if (this.props.users === null) this.props.getUsers()
+
     }
 
 
@@ -27,10 +32,10 @@ class TestCarousel extends Component {
     //     this.clearInterval(this.state.timer);
     // }
 
-    render() {  
+    render() {
         // const {message} = this.props
         const currentCity=this.props.match.params.location
-              
+
         return (
             <div>
                 <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={10000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
@@ -60,19 +65,20 @@ class TestCarousel extends Component {
                     }
             })}
             </Carousel>
-            {  
-             <MessageBar currentCity={currentCity}/> 
-             } 
+            {
+             <MessageBar currentCity={currentCity}/>
+             }
             </div>
         )
-    }   
+    }
 }
 
 const mapStateToProps = function (state) {
     return {
         slider: state.sliderData,
-        host: state.host
+        host: state.host,
+        users: state.users === null ? null : state.users,
     }
 }
 
-export default connect(mapStateToProps, { fetchSliderData, fetchHostData })(TestCarousel)
+export default connect(mapStateToProps, { fetchSliderData, fetchHostData, getUsers })(TestCarousel)

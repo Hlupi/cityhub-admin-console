@@ -14,8 +14,15 @@ class MessageBar extends PureComponent {
   render() {
 
     const { messages } = this.props
-    if( messages !== null &&
-        messages !== undefined) {
+
+      if ( 
+      messages !== null &&
+      messages !== undefined && 
+      messages.text !== null &&
+      messages.text !== undefined &&
+      messages.text !== "" &&
+      messages.text !== " "
+      ) {
           return (
             <div id="container">
               <div id="header"></div>
@@ -23,13 +30,10 @@ class MessageBar extends PureComponent {
               <div id="footer"><Marquee>{messages.text}</Marquee></div>
             </div>
           )
-        } else return (<div id="container">
-          <div id="body"></div>
-          <div id="footer"><p>Loading the message..</p></div>
-        </div>)
-
+      } 
+      else return null
+    }
   }
-}
 
 const mapStateToProps = function (state) {
   return {

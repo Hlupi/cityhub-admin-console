@@ -9,11 +9,13 @@ import './App.css'
 import TopBar from './components/dashboard/layout/TopBar'
 import  TestCarousel  from './components/slider/main/Carousel';
 import SingleEvent from './components/singleevent/SingleEvent';
+// import MessageBar from './components/dashboard/messages/MessageBar';
+
 class App extends Component {
 
   render() {
-
-   const {user} = this.props
+  //  const {user, message} = this.props
+  //  const currentCity="amsterdam"
     return (
       <Router>
         <div>
@@ -33,6 +35,7 @@ class App extends Component {
             <Route exact path="/singleevent/:id" component={SingleEvent} />
             <Route exact path="/" render={ () => <Redirect to="/dashboard" /> } />
           </main>
+          {/* { message !== '' && <MessageBar currentCity={currentCity}/> }           */}
         </div>
       </Router>
     )
@@ -40,7 +43,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  message: state.message
 })
 // export default App
 export default connect(mapStateToProps)(App)

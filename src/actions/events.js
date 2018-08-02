@@ -105,15 +105,16 @@ const addMessage = message => ({
   payload: message
 })
 
+
 // Get messages
-export const getMessages = (city) => (dispatch, getState) => {
-  const state = getState()
-  if (!state.currentUser) return null
-  const jwt = state.currentUser.jwt
+export const getMessages = (city) => (dispatch) => {
+  // const state = getState()
+  // if (!state.currentUser) return null
+  // const jwt = state.currentUser.jwt
 
   request
     .get(`${baseUrl}/messages/${city}`)
-    .set('Authorization', `Bearer ${jwt}`)
+    // .set('Authorization', `Bearer ${jwt}`)
     // .send(city)
     .then(result => dispatch(updateMessages(result.body)))
     .catch(err => console.error(err))

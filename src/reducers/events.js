@@ -1,5 +1,5 @@
 import {USER_LOGOUT} from '../actions/users'
-import {ADD_EVENT, UPDATE_EVENTS, EDIT_EVENT, REMOVE_EVENT} from '../actions/events'
+import {ADD_EVENT, UPDATE_EVENTS, EDIT_EVENT, REMOVE_EVENT } from '../actions/events'
 
 export default (state = null, {type, payload}) => {
   switch (type) {

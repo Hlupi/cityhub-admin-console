@@ -8,6 +8,7 @@ import Joke from '../events/Joke'
 import { connect } from 'react-redux';
 import { fetchSliderData } from '../../../actions/sliderData'
 import { fetchHostData } from '../../../actions/host'
+import MessageBar from '../../dashboard/messages/MessageBar';
 
 class TestCarousel extends Component {
     // state={autoPlay: true}
@@ -26,7 +27,10 @@ class TestCarousel extends Component {
     //     this.clearInterval(this.state.timer);
     // }
 
-    render() {        
+    render() {  
+        // const {message} = this.props
+        const currentCity=this.props.match.params.location
+              
         return (
             <div>
                 <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={10000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
@@ -56,6 +60,9 @@ class TestCarousel extends Component {
                     }
             })}
             </Carousel>
+            {  
+             <MessageBar currentCity={currentCity}/> 
+             } 
             </div>
         )
     }   

@@ -4,10 +4,10 @@
 }
 #header {
    background: white;
-   padding:10px;
+   /* padding:10px; */
 }
 #body {
-   padding:10px;
+   /* padding:10px; */
    padding-bottom:60px; 
 }
 #footer {

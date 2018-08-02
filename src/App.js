@@ -20,7 +20,7 @@ class App extends Component {
         <div>
 
             {
-              this.user &&
+              user &&
               <nav>
               <TopBar />
               </nav>

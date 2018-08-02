@@ -14,7 +14,10 @@ export default class Joke extends PureComponent {
                 </div>
 
                 <div className='legend'>
-                    <div className='speech-bubble-ds'>
+                    <img src={this.props.host.Picture} className='hostPic' alt=''/>
+                    <h3 className='hostName'>{this.props.host.FirstName}<br /> <span className='cityHub'>CityHub</span></h3>
+                    
+                    <div className='speech-bubble'>
                         <h1>{this.props.data.title}</h1>
                         <p className='jokeText'>{this.props.data.description}</p>
                         <div className="speech-bubble-ds-arrow"></div>

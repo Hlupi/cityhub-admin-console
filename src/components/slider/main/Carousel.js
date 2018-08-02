@@ -8,9 +8,10 @@ import Joke from '../events/Joke'
 import { connect } from 'react-redux';
 import { fetchSliderData } from '../../../actions/sliderData'
 import { fetchHostData } from '../../../actions/host'
+import logo from '../images/cityhub-logo-black.svg'
 
-    class TestCarousel extends Component {
-        state={autoPlay: true}
+class TestCarousel extends Component {
+    state={autoPlay: true}
     param = this.props.match.params.location
 
 
@@ -19,24 +20,18 @@ import { fetchHostData } from '../../../actions/host'
         this.props.fetchHostData()
         const timer = setInterval(() => window.location.reload(), 1000 * 120);
         this.setState({timer});
-
     }
 
-    componentWillUnmount() {
-        this.clearInterval(this.state.timer);
-    }
 
-    render() {
-        
+    // componentWillUnmount() {
+    //     this.clearInterval(this.state.timer);
+    // }
+
+    render() {        
         return (
             <div>
-
-                    <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={1000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
-            
-            
-                {
-            
-                    this.props.slider.map(item => {
+                <Carousel autoPlay={setTimeout(() => this.state.autoPlay, 2000)} interval={1000} infiniteLoop showThumbs={false} showIndicators={false} showStatus={false} stopOnHover={false} swipeable={false}>
+                {this.props.slider.map(item => {
                     if (item.source === "instagram") {
                         return (
                             <div key={item}><Instagram data={item} /></div>
@@ -51,7 +46,7 @@ import { fetchHostData } from '../../../actions/host'
 
                     if (item.source === "joke") {
                         return (
-                            <div key={item}><Joke data={item} /></div>
+                            <div key={item}><Joke data={item} host={this.props.host}/></div>
                         )
                     }
 
@@ -60,12 +55,11 @@ import { fetchHostData } from '../../../actions/host'
                             <div key={item}><Event data={item} host={this.props.host}/></div>
                         )
                     }
-
             })}
-            </Carousel>)}
+            </Carousel>
             </div>
         )
-    }
+    }   
 }
 
 const mapStateToProps = function (state) {

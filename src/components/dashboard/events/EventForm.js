@@ -12,7 +12,6 @@ class EventForm extends PureComponent {
 
 
 	GeocodeAddress = () => {
-		console.log(this.state.address)
 		Geocode.fromAddress(this.state.address).then(
 			response => {
 				const { lat, lng } = response.results[0].geometry.location;
@@ -39,16 +38,16 @@ class EventForm extends PureComponent {
     data.location = this.props.currentCity
     data.source= 'event'
 		await this.props.onSubmit(data)
-	}
+  }
 
-	// await this.setState({
-	// 	title: "",
-	// 	description: '',
-	// 	address: "",
-	// 	image: "",
-	// 	startDate: " ",
-	// 	endDate: " ",
-	// })
+  console.log('STATE',this.state)
+  
+  this.setState({
+    title: "",
+    description: "",
+    image: "",
+    address: ""
+  })
 
 	}
 
@@ -61,7 +60,6 @@ class EventForm extends PureComponent {
   }
 
 	render() {
-		// const initialValues = this.props.initialValues || {}
 		return (
       <div className="eventForm">
 				<h2>Content</h2>
@@ -71,7 +69,14 @@ class EventForm extends PureComponent {
             label="Title"
             onChange={ this.handleChange }
             margin="normal"
-						fullWidth
+            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
+            placeholder=""
+            value={
+              this.state.title
+            }
             />
             <br />
             <TextField
@@ -79,7 +84,14 @@ class EventForm extends PureComponent {
             label="Description"
             onChange={ this.handleChange }
             margin="normal"
-						fullWidth
+            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
+            placeholder=""
+            value={
+              this.state.description
+            }
             />
             <br />
             <TextField
@@ -87,7 +99,14 @@ class EventForm extends PureComponent {
             label="Image URL"
             onChange={ this.handleChange }
             margin="normal"
-						fullWidth
+            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
+            placeholder=""
+            value={
+              this.state.image
+            }
             />
             <br />
             <TextField
@@ -95,7 +114,14 @@ class EventForm extends PureComponent {
             label="Address"
             onChange={ this.handleChange }
             margin="normal"
-						fullWidth
+            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
+            placeholder=""
+            value={
+              this.state.address
+            }
             />
             <br />
             <TextField
@@ -104,8 +130,10 @@ class EventForm extends PureComponent {
             label="Starts"
             onChange={ this.handleChange }
             margin="normal"
-						fullWidth
-						// value=" "
+            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
             />
             <br />
             <TextField
@@ -114,8 +142,10 @@ class EventForm extends PureComponent {
             label="Ends"
             onChange={ this.handleChange }
             margin="normal"
-						fullWidth
-						// value=" "
+            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
             />
 
             <br />
@@ -127,9 +157,5 @@ class EventForm extends PureComponent {
 		)
 	}
 }
-
-// const mapStateToProps = () => ({  })
-//
-// export default connect(mapStateToProps, { createEvent })(AddEventForm)
 
 export default EventForm

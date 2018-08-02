@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import {getNewInstaPics} from '../../../actions/scraper'
+import Button from '@material-ui/core/Button'
 
 class Scraper extends PureComponent {
   handleSubmit = () => {
@@ -9,7 +10,7 @@ class Scraper extends PureComponent {
   }
   render() {
     return(
-      <button onClick={this.handleSubmit}>New Instagram Pics</button>  
+      <Button onClick={this.handleSubmit} id='eventButton'>New Instagram Pics</Button>  
     )
   }
 }

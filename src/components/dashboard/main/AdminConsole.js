@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react'
 import {getEvents, createEvent, updateMessage} from '../../../actions/events'
-// import {updateMessage} from '../../../actions/events'
 import {getInstagram} from '../../../actions/instagram'
 import {getUsers} from '../../../actions/users'
 import {connect} from 'react-redux'
@@ -11,7 +10,6 @@ import Grid from '@material-ui/core/Grid';
 import InstagramConsole from '../instagram/InstagramConsole'
 import './AdminConsole.css'
 import logo from '../images/cityhub-logo-black.svg'
-import MessageBar from '../messages/MessageBar'
 import Button from '@material-ui/core/Button'
 import Scraper from '../scraper/Scraper'
 
@@ -39,6 +37,7 @@ class AdminConsole extends PureComponent {
 
   componentDidMount() {
 
+
     this.props.getEvents()
     this.props.getInstagram()
 
@@ -51,6 +50,8 @@ class AdminConsole extends PureComponent {
 
 
     const {users, history} = this.props
+
+    
 
 
     if (users !== null) {
@@ -84,7 +85,7 @@ class AdminConsole extends PureComponent {
             </Grid>
           </div>
 
-          <MessageBar currentCity={currentCity}/>
+          {/* <MessageBar currentCity={currentCity}/> */}
         </div>
       )
     }

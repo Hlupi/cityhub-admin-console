@@ -186,7 +186,7 @@
 
     .carousel .divSlide {
         width: 60%;
-        height: 950px;
+        height: 900px;
         vertical-align: top;
         float: left;
         border: 0;
@@ -390,6 +390,7 @@ h1 {
   float: left;
   transform: scale(5);
   padding-top: 11px;
+  color: #ee313e;
 }
 
 .textRight {
@@ -400,9 +401,33 @@ h1 {
 
 .eventStyle {
   font-size: 38px;
+  color:#12998e;
 }
 
 .eventTextStyle {
   font-size: 24px;
   font-family: 'Brown-Regular';
+  color: rgb(65, 65, 65);
+}
+
+.QRsetting {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.eventsStyle {
+  color: rgb(94, 94, 94);
+}
+
+.eventTitle {
+  color:black;
+}
+
+.dateStyle {
+  color: rgb(94, 94, 94);
+  line-height: 15px;
+}
+
+.liningStyle {
+  line-height: 30px;
 }

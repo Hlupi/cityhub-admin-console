@@ -7,7 +7,6 @@ export default class Events extends PureComponent {
     state = {}
 
     render() {
-        console.log(this.props.data.eventsToday)
         return (
             <div>
                 <img src={logo} className='logoStyle' alt=''/>
@@ -22,9 +21,9 @@ export default class Events extends PureComponent {
                                 <p>{index + 1}</p>
                             </div>
                             <div className='textRight'>
-                                <h1>{item.title}</h1>
+                                <h1 className='eventTitle'>{item.title}</h1>
                                 <p>{item.description}</p>
-                                <p><i>{item.address}</i></p>
+                                <p className='eventsStyle'><i>{item.address}</i></p>
                             </div>
                             <div className='lineStyle'></div>
                     </div>))}

@@ -5,13 +5,19 @@ import { GoogleMapsStyle } from './GoogleMapsStyle'
 import { ApiKey } from './Key'
 import '../main/carousel.css'
 import markerCH from '../images/CH-logo.png'
-import redCH from '../images/red-marker1.png'
+import redCH1 from '../images/red-marker1.png'
+import redCH2 from '../images/red-marker2.png'
+import redCH3 from '../images/red-marker3.png'
+import redCH4 from '../images/red-marker4.png'
 /*global google*/
 
 const cities = [
   {amsterdam: {lat: 52.3672857, lng: 4.8650415}},
   {rotterdam: {lat: 51.9153354, lng: 4.4733156}}
 ]
+
+const markers = [redCH1,redCH2,redCH3,redCH4]
+const markerHolder = markers.map(item => item)
 
 const MapComponent = compose(
   withProps({
@@ -35,14 +41,13 @@ const MapComponent = compose(
       defaultAnimation={google.maps.Animation.DROP}
       icon={markerCH}
     /> }
-      {console.log(props.data)}
 
     { props.data.map((a, index) => 
       <Marker
       position={ {lat: +a.lat, lng: +a.lng} }
       defaultAnimation={ google.maps.Animation.DROP }
       key={ index }
-      icon={redCH}
+      icon = {markerHolder[index]}
       />
     ) }
 

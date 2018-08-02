@@ -167,6 +167,7 @@
       padding: 0;
       position: relative;
       list-style: none;
+      z-index: -10;
       width: 100%; }
       .carousel .slider.animated {
         -webkit-transition: all 0.35s ease-in-out;

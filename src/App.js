@@ -19,7 +19,7 @@ class App extends Component {
         <div>
 
             {
-              user &&
+              this.user &&
               <nav>
               <TopBar />
               </nav>
